@@ -222,7 +222,7 @@ func sendTelegram(from string, chatID string, body []byte) error {
 	if len(body) > 3600 {
 		return errors.New("message too long")
 	}
-	url := fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=Markdown&text=%s",
+	url := fmt.Sprintf("https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=Markdown&disable_web_page_preview=true&text=%s",
 		from, chatID, rawurlencode(string(body)))
 	log.Println("[URL]=", url)
 
